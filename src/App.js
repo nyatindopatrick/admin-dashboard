@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
+import PublicRoutes from "./routes/PublicRoutes";
+import PrivateRoutes from "./routes/PrivateRoutes";
+import history from "./util/history";
+import "./App.css";
+import 'react-widgets/dist/css/react-widgets.css'
 
-function App() {
+const authentication = () =>
+  JSON.parse(localStorage.getItem("roles")) ? (
+    <Redirect to="/app" />
+  ) : (
+    <PublicRoutes />
+  );
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <div>
+        <Router history={history}>
+          <Switch>
+            <Route path="/app" component={PrivateRoutes} />
+            <Route path="" render={authentication} />
+          </Switch>
+        </Router>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

@@ -3,9 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.6.1",
+    "@material-ui/icons": "^4.5.1",
+    "chart.js": "^2.9.3",
+    "clsx": "^1.0.4",
     "react": "^16.12.0",
+    "react-bootstrap": "^1.0.0-beta.14",
+    "react-chartjs-2": "^2.8.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.2.0"
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "react-widgets": "^4.4.11",
+    "reactstrap": "^8.1.1",
+    "recharts": "^1.8.5"
   },
   "scripts": {
     "start": "react-scripts start",
